@@ -15,7 +15,7 @@
     user_id, user_name, user_pass, user_phone, user_email, user_balance, user_head, user_level
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from user
     where user_id = #{userId,jdbcType=INTEGER}
@@ -23,16 +23,19 @@
   <select id="getAllUser" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select * from user
   </select>
+    <select id="checkUser" resultMap="BaseResultMap"  parameterType="java.lang.String">
+    select * from user where user_name = #{userName} and user_pass = #{userPass}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="org.lanqiao.entity.User" >
-    insert into user (user_id, user_name, user_pass, 
-      user_phone, user_email, user_balance, 
+    insert into user (user_id, user_name, user_pass,
+      user_phone, user_email, user_balance,
       user_head, user_level)
-    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPass,jdbcType=VARCHAR}, 
-      #{userPhone,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userBalance,jdbcType=INTEGER}, 
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPass,jdbcType=VARCHAR},
+      #{userPhone,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userBalance,jdbcType=INTEGER},
       #{userHead,jdbcType=VARCHAR}, #{userLevel,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="org.lanqiao.entity.User" >
