@@ -22,4 +22,6 @@ public interface OrderItemMapper {
     List<OrderItem> Get();
 
     int updateitem();
+    OrderItem getSendMsg(Integer orderitemId);
+
 }
