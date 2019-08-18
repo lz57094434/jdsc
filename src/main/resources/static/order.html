@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>订单结算页(JD.COM)</title>
-    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/orderbase.css">
     <link rel="stylesheet" href="css/order.css">
 </head>
 <script src="js/jquery-3.4.1.min.js"></script>
@@ -83,7 +83,6 @@
                 goodsbuyPrice: [],
                 goodsbuyNumber:[],
             },
-
         })
         //商品品牌的ajax
         $.ajax({
@@ -100,6 +99,7 @@
                 brandName:[],
             }
         })
+
     })
 </script>
 <body>
@@ -433,7 +433,7 @@
                     <span>收货人：{{username}} 电话：{{userPhone}}</span>
                 </div>
             </div>
-            <div id="check-footbar">
+            <div id="check-footbar" @click="click">
                 <div class="check-button">
                     <button>
                         <b></b>
