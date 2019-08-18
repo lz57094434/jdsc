@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class TestController {
+public class OrderController {
 
     @Autowired
     RecMsgService recMsgService;

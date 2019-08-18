@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>商品搜索</title>
     <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/jquery.cookie.js"></script>
     <script>
         $(function () {
             // var pageNum = 1;
@@ -53,7 +54,8 @@
                         goodsPage();
                     },
                     goodsJump:function (index) {
-                        alert(index);
+                        alert(goodsSelect.imgs[index].goodsId);
+                        $.cookie('goodsId',goodsSelect.imgs[index].goodsId);
                     }
                 }
             });
@@ -61,6 +63,12 @@
                 el:"#body2left",
                 data:{
                     imgs:[]
+                },
+                methods:{
+                    goodsJump:function (index) {
+                        // alert(goodsSelect.imgs[index].goodsId);
+                        alert($.cookie('goodsId'));
+                    }
                 }
             });
             goodsPage();
@@ -405,7 +413,7 @@
                     </div>
                 </div>
                 <div id="body2right_3">
-                    <div class="body2right_3_shangpin" v-for="(img,index) in imgs">
+                    <div class="body2right_3_shangpin" v-for="(img,index) in imgs" @click="goodsJump(index)">
                         <img v-bind:src="img.goodsimgUrl">
                         <!--{{img.goodsimgUrl}}-->
                         <p class="body2right_3_p">￥{{img.goodsstylePrice}}.00</p>
