@@ -51,6 +51,9 @@
                     findSearch:function () {
                         goods.pageNum=1;
                         goodsPage();
+                    },
+                    goodsJump:function (index) {
+                        alert(index);
                     }
                 }
             });
@@ -86,7 +89,9 @@
                             var setGoodsStyle=goodsList[i].setGoodsStyle;//得到商品里的格式信息
                             goods.imgs.push({goodsimgUrl:"images/"+setGoodsImg[0].goodsimgUrl,
                                 goodsstylePrice:setGoodsStyle[0].goodsstylePrice,
-                                goodsNote1:goodsList[i].goodsNote1,goodsComment:goodsComment[i]!=null?goodsComment[i]:0});
+                                goodsNote1:goodsList[i].goodsNote1,
+                                goodsComment:goodsComment[i]!=null?goodsComment[i]:0,
+                                goodsId:goodsList[i].goodsId});
                             // goodsComment:goodsComment[i]!=null?goodsComment[i]:0
                         }
                         for(var i=0;i<goodsList.length&&i<6;i++){
@@ -94,7 +99,9 @@
                             var setGoodsStyle=goodsList[i].setGoodsStyle;
                             goodsSelect.imgs.push({goodsimgUrl:"images/"+setGoodsImg[0].goodsimgUrl,
                                 goodsstylePrice:setGoodsStyle[0].goodsstylePrice,
-                                goodsNote1:goodsList[i].goodsNote1,goodsComment:goodsComment[i]!=null?goodsComment[i]:0});
+                                goodsNote1:goodsList[i].goodsNote1,
+                                goodsComment:goodsComment[i]!=null?goodsComment[i]:0,
+                                goodsId:goodsList[i].goodsId});
                         }
                         for(var i=0;i<page;i++){
                             goods.fenyes.push({page:i+1});
@@ -320,7 +327,7 @@
                 <h3>商品精选</h3>
                 <span id="guanggao"><img src="images/guanggao.gif"></span>
                 <ul>
-                    <li v-for="(img,index) in imgs">
+                    <li v-for="(img,index) in imgs" @click="goodsJump(index)">
                         <img v-bind:src="img.goodsimgUrl">
                         <p class="body2left_p">￥{{img.goodsstylePrice}}.00</p>
                         <p>{{img.goodsNote1}}</p>
