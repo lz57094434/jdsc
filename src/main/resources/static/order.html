@@ -100,7 +100,21 @@
                 brandName:[],
             }
         })
+        //提交订单
+        var btnOrder = new Vue({
+            el:"#check-footbar",
+            methods:{
+                Onclick:function () {
+                    $.cookie("orderId",1);
+                    $.cookie("orderId");
+                }
+            }
+        })
     })
+</script>
+<script src="js/jquery.cookie.js"></script>
+<script>
+
 </script>
 <body>
 <!--顶部-->
@@ -433,7 +447,7 @@
                     <span>收货人：{{username}} 电话：{{userPhone}}</span>
                 </div>
             </div>
-            <div id="check-footbar">
+            <div id="check-footbar" @click="Onclick">
                 <div class="check-button">
                     <button>
                         <b></b>

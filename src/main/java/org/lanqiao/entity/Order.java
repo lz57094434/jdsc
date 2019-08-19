@@ -32,4 +32,6 @@ public class Order {
     public void setOrderState(String orderState) {
         this.orderState = orderState == null ? null : orderState.trim();
     }
+
+
 }

@@ -1,9 +1,6 @@
 package org.lanqiao.controller;
 
-import org.lanqiao.entity.Brand;
-import org.lanqiao.entity.OrderItem;
-import org.lanqiao.entity.User;
-import org.lanqiao.entity.UserAddress;
+import org.lanqiao.entity.*;
 import org.lanqiao.mapper.UserAddressMapper;
 import org.lanqiao.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,22 +14,25 @@ public class TestController {
 
     @Autowired
     RecMsgService recMsgService;
+
     @RequestMapping("/getRecMsg")
-    public UserAddress getRecMsg(){
+    public UserAddress getRecMsg() {
         return recMsgService.getRecMsg();
     }
 
     @Autowired
     SendMsgService sendMsgService;
+
     @RequestMapping("/SendMsg")
-    public OrderItem getSendMsg(){
+    public OrderItem getSendMsg() {
         return sendMsgService.getSendMsg();
     }
 
     @Autowired
     getBrandService getBrandService;
+
     @RequestMapping("/getBrand")
-    public Brand getBrand(){
+    public Brand getBrand() {
         return getBrandService.getBrand();
     }
 
